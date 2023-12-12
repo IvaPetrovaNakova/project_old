@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+
+  # php service language
+  language:
+    image: php:8.3
+
+  # db service - configure
+  mysql:
+    image: mysql:8
+  # Add the MYSQL_ROOT_PASSWORD to the environment variables
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-root}
+
+  # web server
+  apache:
+    image: httpd:2.4
+    ports:
+      - '8100:80'
+
+
