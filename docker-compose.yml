@@ -16,6 +16,7 @@ services:
   # web server
   apache:
     image: httpd:2.4
+    build: game/docker/build/apache
     ports:
       - '8100:80'
 
