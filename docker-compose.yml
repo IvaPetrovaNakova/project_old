@@ -13,10 +13,12 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-root}
 
-  # web server
+  # configure apache
   apache:
-    image: httpd:2.4
-    build: game/docker/build/apache
+    # build: game/docker/build/apache <- Remove this node
+    build:
+      context: .
+      dockerfile: docker/build/apache/Dockerfile
     ports:
       - '8100:80'
 
