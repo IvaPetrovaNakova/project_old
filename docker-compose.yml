@@ -7,9 +7,10 @@ services:
     build:
       context: .
       dockerfile: docker/build/php/Dockerfile
+    ports:
+      - '8100:80'
 
-
-  # db service - configure
+      # db service - configure
   mysql:
     image: mysql:8
   # Add the MYSQL_ROOT_PASSWORD to the environment variables
